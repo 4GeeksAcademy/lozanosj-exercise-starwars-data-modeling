@@ -24,10 +24,8 @@ class Favorites(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('User.id'), nullable=False)
-    characters_id = Column(Integer, ForeignKey('Characters.id'), nullable=False)
-    planets_id = Column(Integer, ForeignKey('Planets.id'), nullable=False)
-
-
+    characters_id = Column(Integer, ForeignKey('Characters.id'), nullable= True)
+    planets_id = Column(Integer, ForeignKey('Planets.id'), nullable= True)
 
 
 class Characaters(Base):
@@ -54,6 +52,8 @@ class Planets(Base):
     population = Column(Integer, nullable= True)
     climate = Column(String(250), nullable= True)
     terrain = Column(String(250), nullable= True)
+
+
 
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
