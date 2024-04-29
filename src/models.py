@@ -8,7 +8,7 @@ from eralchemy2 import render_er
 Base = declarative_base()
 
 class User(Base):
-    __tablename__ = 'User'
+    __tablename__ = 'user'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
@@ -20,16 +20,15 @@ class User(Base):
 
 
 class Favorites(Base):
-    __tablename__= 'Favorites'
+    __tablename__= 'favorites'
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('User.id'), nullable=False)
-    characters_id = Column(Integer, ForeignKey('Characters.id'), nullable= True)
-    planets_id = Column(Integer, ForeignKey('Planets.id'), nullable= True)
-
+    user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
+    characters_id = Column(Integer, ForeignKey('characters.id'), nullable= True)
+    planets_id = Column(Integer, ForeignKey('planets.id'), nullable= True)
 
 class Characaters(Base):
-    __tablename__= 'Characters'
+    __tablename__= 'characters'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
@@ -41,7 +40,7 @@ class Characaters(Base):
 
 
 class Planets(Base):
-    __tablename__= 'Planets'
+    __tablename__= 'planets'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
